@@ -12,3 +12,4 @@ logs
 results
 .idea
 npm-debug.log
+config.json
