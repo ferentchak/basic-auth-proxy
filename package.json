@@ -1,0 +1,20 @@
+{
+  "name": "basic-auth-proxy",
+  "version": "0.0.0",
+  "description": "rally-external-proxy ====================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ferentchak/basic-auth-proxy.git"
+  },
+  "author": "ferentchak@gmail.com",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "a3d2fa84ffc0ce236e0ae0d6ea25baf3da9275d7",
+  "dependencies": {
+    "http-proxy": "~0.8.7"
+  }
+}
