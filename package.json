@@ -1,25 +1,26 @@
 {
-  "name": "basic-auth-proxy",
-  "version": "0.0.0",
-  "description": "Soon to be a proxy that feed basic auth information to the server",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "mocha -t 20000 --compilers coffee:coffee-script"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ferentchak/basic-auth-proxy.git"
-  },
-  "author": "ferentchak@gmail.com",
-  "license": "MIT",
-  "readmeFilename": "README.md",
-  "gitHead": "a3d2fa84ffc0ce236e0ae0d6ea25baf3da9275d7",
-  "dependencies": {
-    "coffee-script": "~1.4.0",
-    "request": "~2.12.0",
-    "underscore": "~1.4.3"
-  },
-  "devDependencies": {
-    "mocha": "~1.8.1"
-  }
+    "name":"basic-auth-proxy",
+    "version":"0.0.1",
+    "description":"Soon to be a proxy that feed basic auth information to the server",
+    "main":"lib/index.js",
+    "scripts":{
+        "test":"mocha -t 20000 --compilers coffee:coffee-script"
+    },
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/ferentchak/basic-auth-proxy.git"
+    },
+    "author":"ferentchak@gmail.com",
+    "license":"MIT",
+    "readmeFilename":"README.md",
+    "gitHead":"a3d2fa84ffc0ce236e0ae0d6ea25baf3da9275d7",
+    "dependencies":{
+        "coffee-script":"~1.4.0",
+        "request":"~2.12.0",
+        "underscore":"~1.4.3"
+    },
+    "devDependencies":{
+        "mocha":"~1.8.1"
+    },
+    "bin":"./bin/basic-auth-proxy"
 }
