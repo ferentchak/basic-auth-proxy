@@ -1,6 +1,6 @@
 {
     "name":"basic-auth-proxy",
-    "version":"0.0.1",
+    "version":"0.1.0",
     "description":"Soon to be a proxy that feed basic auth information to the server",
     "main":"lib/index.js",
     "scripts":{

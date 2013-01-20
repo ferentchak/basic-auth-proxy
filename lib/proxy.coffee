@@ -5,15 +5,15 @@ request = require('request')
 _ = require('underscore')
 
 
-module.exports = (username,password,newHost)->
+module.exports = ({username,password,targetServer,proxyPort})->
   {addAuthTokenToHeader} = require("./authorization")({username,password})
   {shouldForwardRequest}= require("./request-filter")
-
+  proxyPort = proxyPort||9001
   http.createServer((req, res)->
     headers = addAuthTokenToHeader()
     urlObject = parse(req.url)
     if(shouldForwardRequest(req))
-      url = "#{newHost}#{urlObject.path}"
+      url = "#{targetServer}#{urlObject.path}"
       request(
         {headers,url}
         (error, response, body) ->
@@ -28,7 +28,7 @@ module.exports = (username,password,newHost)->
       res.writeHead(400, { 'Content-Type': 'text/json' })
       res.write(JSON.stringify({errors:["Request Filtered by proxy"]}))
       res.end()
-  ).listen(9001)
+  ).listen(proxyPort)
 
 
 
