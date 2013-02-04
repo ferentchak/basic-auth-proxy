@@ -6,5 +6,10 @@ path = require("path");
 currentDirectory = process.cwd();
 
 var configFileLocation = path.join(currentDirectory, "config.json");
+if(!fs.existsSync(configFileLocation))
+{
+      var content = fs.readFileSync(path.resolve("..", "config.json"));
+      fs.writeFileSync(configFileLocation, content);
+}
 var config = JSON.parse(fs.readFileSync(configFileLocation));
 proxy(config);
