@@ -5,7 +5,8 @@ requires a config json file to be local to the installation
     {
         "username":"",
         "password":"",
-        "server":""
+        "targetServer":"",
+        "proxyPort":9000
     }
 
 
