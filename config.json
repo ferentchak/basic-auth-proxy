@@ -1,7 +1,7 @@
 {
     "username":"",
     "password":"",
-    "targetServer":"",
+    "targetServer":"https://rally1.rallydev.com",
     "proxyPort":5000,
     "directProxyPatterns":[
         "^\/analytics\/v2.0\/service\/.*js$",

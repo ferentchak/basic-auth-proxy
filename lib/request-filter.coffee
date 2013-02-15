@@ -1,10 +1,9 @@
 
 url = require('url')
 module.exports =
-  allowedPatterns: []
-  shouldForwardRequest : (req)->
+  shouldForwardRequest : (req,patterns)->
     urlObject = url.parse(req.url)
-    for pattern in module.exports.allowedPatterns
+    for pattern in patterns
       if urlObject.pathname.match(pattern)
         return true
     return false
