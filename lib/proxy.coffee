@@ -4,6 +4,13 @@ request = require('request')
 {parse} = require('url')
 _ = require('underscore')
 
+addCORSHeaders = (header)->
+  header["Access-Control-Allow-Origin"]="*"
+  header["Access-Control-Allow-Headers"]="X-Requested-With"
+  return header
+
+
+
 addAuth = (username,password)->
   if !(username && username.length)
     return false
@@ -14,6 +21,11 @@ module.exports = ({username,password,targetServer,proxyPort,directProxyPatterns}
   {shouldForwardRequest}= require("./request-filter")
   proxyPort = proxyPort||9001
   http.createServer((req, res)->
+    if req.method == "OPTIONS"
+      res.writeHead(200, addCORSHeaders({}))
+      res.write("{}")
+      res.end()
+      return
     if addAuth(username,password)
       {addAuthTokenToHeader} = require("./authorization")({username,password})
       headers = addAuthTokenToHeader()
@@ -24,6 +36,7 @@ module.exports = ({username,password,targetServer,proxyPort,directProxyPatterns}
         {headers,url}
         (error, response, body) ->
           if (!error)
+            addCORSHeaders(response.headers)
             res.writeHead(response.statusCode, response.headers)
             res.write(body)
             res.end()
