@@ -1,5 +1,12 @@
 assert = require 'assert'
-{shouldForwardRequest} = require "../lib/request-filter.coffee"
+requestFilter = require "../lib/request-filter.coffee"
+fs = require('fs')
+path = require("path");
+currentDirectory = process.cwd();
+configFileLocation = path.join(currentDirectory, "config.json");
+{directProxyPatterns} = JSON.parse(fs.readFileSync(configFileLocation))
+requestFilter.allowedPatterns = directProxyPatterns
+{shouldForwardRequest} = requestFilter
 
 
 describe('RequestFilter', ()->

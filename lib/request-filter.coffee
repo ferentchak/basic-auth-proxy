@@ -1,12 +1,7 @@
 
 url = require('url')
 module.exports =
-  allowedPatterns: [
-    /^\/analytics\/v2\.0\/service\/.*js$/
-    /^\/slm\/webservice\/.*js$/
-    /\/slm\/profile\/viewThumbnailImage.sp/
-    /^\/apps.*/
-  ]
+  allowedPatterns: []
   shouldForwardRequest : (req)->
     urlObject = url.parse(req.url)
     for pattern in module.exports.allowedPatterns

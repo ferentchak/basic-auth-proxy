@@ -5,7 +5,8 @@ request = require('request')
 _ = require('underscore')
 
 
-module.exports = ({username,password,targetServer,proxyPort})->
+module.exports = ({username,password,targetServer,proxyPort,directProxyPatterns})->
+  console.log directProxyPatterns
   {addAuthTokenToHeader} = require("./authorization")({username,password})
   {shouldForwardRequest}= require("./request-filter")
   proxyPort = proxyPort||9001

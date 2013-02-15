@@ -2,5 +2,10 @@
     "username":"",
     "password":"",
     "targetServer":"",
-    "proxyPort":5000
+    "proxyPort":5000,
+    "directProxyPatterns":[
+        "^\/analytics\/v2.0\/service\/.*js$",
+        "^\/slm\/webservice\/.*js$",
+        "\/slm\/profile\/viewThumbnailImage.sp",
+        "^\/apps.*"]
 }
